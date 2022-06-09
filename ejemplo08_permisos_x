@@ -1,0 +1,5 @@
+for FILE in `ls`
+do
+echo "Haciendo ejecutable el archivo $FILE" 
+chmod ugo+x $FILE
+done

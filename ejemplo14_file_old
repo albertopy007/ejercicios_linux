@@ -1,0 +1,14 @@
+#!/bin/bash
+echo Bienvenido $USER
+echo -n "Introduzca el nombre del directorio donde desea borrar los archivos mas antiguos de una semana: "
+read DIR
+cd $DIR 2> /dev/null
+# Si el valor de retorno es diferente de 0, existio un error.
+case $? in
+0)
+find $DIR -type f -mtime +7 -ok rm {} \;
+;;
+1)
+echo "El directorio que usted introdujo no existe"
+;;
+esac

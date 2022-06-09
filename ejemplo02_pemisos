@@ -1,0 +1,9 @@
+if [ -x /bin/ls ]
+then
+echo “el fichero es ejecutable”
+fi
+
+if [ -e /var/run/proceso ]
+then
+echo “El proceso ya se está ejecutando”
+fi

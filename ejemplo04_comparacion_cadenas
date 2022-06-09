@@ -1,0 +1,6 @@
+if [ "$USER" != "root" ] 
+then
+echo "Usted debe ser root para ejecutar este programa" 
+else
+tar cvf /dev/st0 /
+fi

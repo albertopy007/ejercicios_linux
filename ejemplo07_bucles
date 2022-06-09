@@ -1,0 +1,4 @@
+for USER in root lp bin
+do
+finger $USER
+done

@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "Intrduzca un numero: "
+read NUMERO
+if [ $NUMERO -lt 5 ] 
+then
+	echo "El numero era menor que 5" 
+elif [ $NUMERO -eq 5 ]
+then
+	echo "El numero era 5" 
+elif [ $NUMERO -gt 5 ] 
+then
+	echo "El numero era mayor que 5" 
+else
+	echo "No introdujo un numero"
+fi

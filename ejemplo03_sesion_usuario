@@ -1,0 +1,8 @@
+LIMIT=2
+SESSIONS=`who | grep $USER | wc -l` 
+if [ $SESSIONS -gt $LIMIT ]
+then
+	echo "Usted ya tiene $SESSIONS activas”
+	echo “No se permiten nuevos inicios de sesion" 
+exit 0
+fi

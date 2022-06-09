@@ -1,0 +1,6 @@
+CONTADOR=0
+while [ "$CONTADOR" -lt 10 ]
+do
+echo $CONTADOR
+CONTADOR=$(expr "$CONTADOR" + 1)
+done

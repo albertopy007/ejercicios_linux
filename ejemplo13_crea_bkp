@@ -1,0 +1,21 @@
+if [ $# -lt 1 ]
+then
+  echo "Error. Esperaba al menos un parametro"
+  exit 1
+fi
+case $1 in
+-c|--create)
+  echo "Creando backup de $HOME"
+  tar cvf /tmp/$USER.tar $HOME
+;;
+-l|-t|--list)
+  echo "Listando backup en el archivo /tmp/$USER.tar"
+  tar tvf /tmp/$USER.tar
+;;
+*)
+  echo "Error de sintaxis"
+  echo "Uso: $0 <-c|--create>"
+  echo "	$0 <-l|-t|--list>"
+;;
+esac
+exit 0

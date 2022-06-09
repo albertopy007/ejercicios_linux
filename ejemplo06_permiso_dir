@@ -1,0 +1,20 @@
+#!/bin/bash
+if [ $# -eq 0 ] 
+then
+	echo -n "Ingrese ruta al directorio: " 
+	read DIR
+	if [ -z $DIR ]
+	then
+	 echo "Debe introducir una ruta valida" 
+	 exit 1
+	fi 
+else
+ DIR=$1
+fi
+	cd $DIR > /dev/null 2>&1
+if [ $? -eq 0 ]
+then
+	echo "Usted tiene acceso a $DIR" 
+else
+	echo "Usted no tiene acceso a $DIR"
+fi

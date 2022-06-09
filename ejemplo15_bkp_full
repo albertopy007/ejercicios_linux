@@ -1,0 +1,27 @@
+#!/bin/bash
+umask 022
+BACKUPDIR=/tmp
+BACKUPFILE=$BACKUPDIR/$USER-`date +%d-%m-%Y`.tar
+BACKUPFILE=/dev/st0
+LOGFILE=$BACKUPDIR/$USER.log
+ERRFILE=$BACKUPDIR/$USER.errs
+RUNFILE=/tmp/$USER.run
+if [ -e "$RUNFILE" ]
+then
+ echo "La copia de seguridad para el usuario $USER ya esta en ejecucion"
+ exit 1
+else
+ touch $RUNFILE
+ echo "Haciendo copia de seguridad del directorio $HOME"
+ tar cvf $BACKUPFILE $HOME > $LOGFILE 2> $ERRFILE
+if [ $? -eq 0 ]
+ then
+ echo "La copia de seguridad ha finalizado sin errores"
+else
+ echo "La copia de seguridad ha finalizado con errores"
+ echo "El registro de error ha sido enviado a su direccion de correo"
+ mail -s "Errores durante el respaldo" $USER < $ERRFILE
+ fi
+ rm $RUNFILE
+fi
+exit 0

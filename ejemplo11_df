@@ -1,0 +1,5 @@
+while true
+do
+df -k
+sleep 5
+done
